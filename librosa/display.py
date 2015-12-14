@@ -30,7 +30,7 @@ try:
     import seaborn as sns
     _HAS_SEABORN = True
     mpl.rcParams.update(**_matplotlibrc)
-except ImportError:
+except (ImportError, ValueError):
     pass
 
 
@@ -255,7 +255,7 @@ def waveplot(y, sr=22050, max_points=5e4, x_axis='time', offset=0.0, max_sr=1000
 
     max_sr : number > 0 [scalar]
         Maximum sampling rate for the visualization
-        
+
     kwargs
         Additional keyword arguments to `matplotlib.pyplot.fill_between`
 
